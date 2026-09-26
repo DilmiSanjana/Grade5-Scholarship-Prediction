@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 5 Scholarship Predictor</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 13px 35px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background: #eef6ff;
+        }
+
+        .result h2 {
+            color: #1e3a8a;
+        }
+
+        @media (max-width: 650px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Grade 5 Scholarship Predictor</h1>
+        <p>Machine Learning Based Student Performance Prediction</p>
+    </div>
+
+    <form method="POST">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Maths Marks</label>
+                <input type="number" name="maths" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label> Sinhala Marks</label>
+                <input type="number" name="sinhala" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label>English Marks</label>
+                <input type="number" name="english" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label>General Knowledge</label>
+                <input type="number" name="general_knowledge" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label>Study Hours Per Day</label>
+                <input type="number" name="study_hours" min="0" max="24" step="0.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Attendance (%)</label>
+                <input type="number" name="attendance" min="0" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label>Previous Exam Marks</label>
+                <input type="number" name="previous_exam" min="0" max="100" required>
+            </div>
+
+        </div>
+
+        <div class="button-container">
+            <button type="submit">Predict Result</button>
+        </div>
+
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        <h2>Prediction: {{ prediction }}</h2>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
