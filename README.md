@@ -40,6 +40,14 @@ The system provides a simple web interface where users can enter student details
 
 
 
+## 🖥️ Application Screenshot
+
+The following screenshot shows the web interface of the Grade 5 Scholarship Prediction System.
+
+![Grade 5 Scholarship Prediction System](screenshots/home.png)
+
+
+
 \## Technologies Used
 
 
